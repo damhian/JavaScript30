@@ -62,7 +62,6 @@
 
     .hand {
       width: 50%;
-      height: 6px;
       background: black;
       position: absolute;
       top: 50%;
@@ -77,6 +76,16 @@
     const secondHand = document.querySelector('.second-hand');
     const minsHand = document.querySelector('.min-hand');
     const hourHand = document.querySelector('.hour-hand');
+
+    const handsConfig = [
+      { hand: secondHand, styles: { height: "3px", background: "#cc2957" } },
+      { hand: minsHand, styles: { height: "4.5px", background: "#454344" } },
+      { hand: hourHand, styles: { height: "5px", width: "30%", left: "20%", background: "#212021" } }
+    ];
+
+    handsConfig.forEach(({ hand, styles }) => {
+      Object.assign(hand.style, styles);
+    });
 
     function setDate() {
       const now = new Date();
